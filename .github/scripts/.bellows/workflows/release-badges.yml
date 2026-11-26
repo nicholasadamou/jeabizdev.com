@@ -1,0 +1,16 @@
+name: Release badge checks (local)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  release-badges:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Show Python runtime
+        run: python3 --version
+      - name: Check badge behavior without network credentials
+        run: python3 test-release-badge.py

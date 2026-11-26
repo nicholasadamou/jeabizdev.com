@@ -1,0 +1,74 @@
+import type { CSSProperties } from "react";
+const paths = {
+  search: ["m21 21-4.4-4.4", "M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0"],
+  menu: ["M4 6h16M4 12h16M4 18h16"],
+  close: ["m6 6 12 12M6 18 18 6"],
+  chevron: ["m6 9 6 6 6-6"],
+  right: ["M5 12h14m-5-5 5 5-5 5"],
+  external: [
+    "M15 3h6v6m0-6L10 14",
+    "M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5",
+  ],
+  file: [
+    "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z",
+    "M14 2v6h6M8 13h8M8 17h6",
+  ],
+  briefcase: [
+    "M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2",
+    "M3 6h18v14H3ZM3 11a20 20 0 0 0 18 0M10 12h4",
+  ],
+  user: [
+    "M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0",
+    "M4 21v-2a7 7 0 0 1 7-7h2a7 7 0 0 1 7 7v2",
+  ],
+  route: [
+    "M5 3v12a4 4 0 0 0 4 4h10M15 15l4 4-4 4",
+    "M8 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M22 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0",
+  ],
+  science: ["M9 3h6M10 3v7l-6 9a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2l-6-9V3M8 15h8"],
+  chart: ["M4 3v17h17M8 15v-4M13 15V7M18 15v-6"],
+  globe: [
+    "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0M3 12h18",
+    "M12 3c5 5 5 13 0 18-5-5-5-13 0-18",
+  ],
+  mail: ["M3 5h18v14H3ZM3 5l9 7 9-7"],
+  linkedin: [
+    "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
+  ],
+  download: ["M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"],
+  check: ["m5 12 4 4L19 6"],
+  folder: ["M3 5h6l2 3h10v12H3Z"],
+  up: ["M12 20V4m-6 6 6-6 6 6"],
+};
+export type IconName = keyof typeof paths;
+export default function Icon({
+  name,
+  size = 18,
+  className = "",
+  style,
+}: {
+  name: IconName;
+  size?: number;
+  className?: string;
+  style?: CSSProperties;
+}) {
+  return (
+    <svg
+      className={`icon ${className}`}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill={name === "linkedin" ? "currentColor" : "none"}
+      stroke={name === "linkedin" ? "none" : "currentColor"}
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      style={style}
+    >
+      {paths[name].map((d, index) => (
+        <path key={index} d={d} />
+      ))}
+    </svg>
+  );
+}

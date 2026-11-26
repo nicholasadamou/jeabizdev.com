@@ -1,0 +1,78 @@
+---
+interface Props {
+  subject: "partnership" | "collaboration";
+  compact?: boolean;
+  embedded?: boolean;
+}
+const { subject, compact = false, embedded = false } = Astro.props;
+const photos = {
+  partnership: {
+    src: "/images/services-handshake.webp",
+    alt: "Two business partners shaking hands",
+    credit: "Cytonn Photography",
+    source: "https://unsplash.com/photos/n95VMLxqM2I",
+  },
+  collaboration: {
+    src: "/images/collaboration.webp",
+    alt: "Participants sharing ideas around a meeting table",
+    credit: "Dylan Gillis",
+    source: "https://unsplash.com/photos/KdeqA3aTnBY",
+  },
+};
+const photo = photos[subject];
+---
+
+<figure class:list={["editorial-photo", { compact, embedded }]}>
+  <img
+    src={photo.src}
+    alt={photo.alt}
+    width="1400"
+    height="900"
+    loading="lazy"
+    decoding="async"
+  />
+  {photo.source && (
+    <figcaption>
+      Photo:{" "}
+      <a href={photo.source} target="_blank" rel="noreferrer">
+        {photo.credit} / Unsplash
+      </a>
+    </figcaption>
+  )}
+</figure>
+<style>
+  .editorial-photo {
+    margin: 48px 0 0;
+  }
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  .compact img {
+    aspect-ratio: 16 / 10;
+  }
+  figcaption {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 10px;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 540px) {
+    img {
+      aspect-ratio: 16 / 10;
+    }
+  }
+  .embedded {
+    margin: 0;
+    min-width: 0;
+  }
+  .embedded img {
+    height: 190px;
+    aspect-ratio: auto;
+  }
+</style>

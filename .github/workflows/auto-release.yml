@@ -1,0 +1,41 @@
+name: auto-release
+on:
+  workflow_run:
+    workflows: [ci]
+    branches: [master]
+    types: [completed]
+concurrency:
+  group: auto-release-master
+  cancel-in-progress: false
+permissions:
+  actions: write
+  contents: write
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+jobs:
+  cut-release:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: step-security/harden-runner@ccd8616d44fd3846e67624a50d5aad6d37bf2d25 # v2.22.1
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - name: Tag the verified revision
+        id: version
+        env:
+          VERIFIED_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: bash scripts/auto-release.sh
+      - name: Dispatch release publication
+        if: steps.version.outputs.tag != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.version.outputs.tag }}
+        run: gh workflow run release.yml --ref master -f tag="$RELEASE_TAG"

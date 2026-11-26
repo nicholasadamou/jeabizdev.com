@@ -1,0 +1,8 @@
+version: 1
+event: workflow_dispatch
+secrets:
+  mode: none
+runner:
+  default_image: ghcr.io/catthehacker/ubuntu@sha256:f195e42bedd719818f81f28c6e54c1d08c5a8400f3012aa187cb90df3823e59a
+  map:
+    ubuntu-latest: ghcr.io/catthehacker/ubuntu@sha256:f195e42bedd719818f81f28c6e54c1d08c5a8400f3012aa187cb90df3823e59a

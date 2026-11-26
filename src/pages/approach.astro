@@ -1,0 +1,166 @@
+---
+import EditorialImage from "../components/EditorialImage.astro";
+import Layout from "../layouts/Layout.astro";
+import Intro from "../components/Intro.astro";
+import Closing from "../components/Closing.astro";
+import Faq from "../components/Faq.astro";
+import { steps, engagements } from "../content/site";
+---
+
+<Layout title="A clear path to partnership">
+  <Intro
+    eyebrow="OUR APPROACH"
+    title="Shared ambition."
+    description="Every successful partnership starts with understanding what matters. We bring structure, perspective, and momentum to bring value to our clients."
+  />
+  <section class="wrap section">
+    <div class="steps">
+      {steps.map(([title, description], index) => (
+        <article class="step">
+          <span class="step-number">0{index + 1}</span>
+          <h2 style="font-size:30px">{title}</h2>
+          <p>{description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="about-section">
+    <div class="wrap section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">WHAT GUIDES THE WORK</p>
+          <h2>
+            Principles with
+            <br />
+            <em>practical purpose.</em>
+          </h2>
+        </div>
+      </div>
+      <div class="values-grid">
+        <article>
+          <h3>Strategic collaboration</h3>
+          <p>
+            Meaningful connections and shared priorities are the foundations of
+            productive, lasting partnerships.
+          </p>
+        </article>
+        <article>
+          <h3>Innovative solutions</h3>
+          <p>
+            Thoughtful, creative deal structures open new paths to value for
+            both sides of the table.
+          </p>
+        </article>
+        <article>
+          <h3>A focus on results</h3>
+          <p>
+            Clear objectives and tangible outcomes keep the work connected to
+            your company’s success.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section
+    class="wrap section working-together"
+    aria-labelledby="working-title"
+  >
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">WORKING TOGETHER</p>
+        <h2 id="working-title">
+          Support that fits <em>your priorities.</em>
+        </h2>
+      </div>
+    </div>
+    <div class="working-grid">
+      <EditorialImage subject="collaboration" compact />
+      <div class="engagement-choices">
+        {engagements.map(([title, subtitle, description]) => (
+          <a href={`/contact?engagement=${encodeURIComponent(title)}`}>
+            <h3>{title}</h3>
+            <strong>{subtitle}</strong>
+            <p>{description}</p>
+            <span class="text-link">Discuss {title.toLowerCase()} support</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <Faq />
+  <Closing />
+</Layout>
+
+<style>
+  .working-together {
+    padding-block: 48px 24px;
+  }
+  .working-together .section-heading {
+    margin-bottom: 28px;
+  }
+  .working-together h2 {
+    font-size: clamp(32px, 3.5vw, 46px);
+  }
+  .working-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 32px;
+  }
+  .working-grid :global(.editorial-photo) {
+    margin: 0;
+  }
+  .working-grid :global(img) {
+    height: calc(100% - 24px);
+  }
+  .engagement-choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .engagement-choices > a {
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+    border: 1px solid var(--line);
+    background: var(--wash);
+  }
+  .engagement-choices > a:hover {
+    border-color: var(--accent);
+  }
+  .engagement-choices h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+  .engagement-choices strong {
+    font-size: 13px;
+  }
+  .engagement-choices p {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 10px 0 18px;
+  }
+  .engagement-choices .text-link {
+    font-size: 12px;
+    margin-top: auto;
+    align-self: start;
+  }
+  .working-together + :global(.faq-grid) {
+    padding-top: 48px;
+  }
+  @media (max-width: 800px) {
+    .working-grid {
+      grid-template-columns: 1fr;
+    }
+    .working-grid :global(img) {
+      height: 220px;
+    }
+    .working-grid :global(.editorial-photo) {
+      order: 2;
+    }
+  }
+  @media (max-width: 540px) {
+    .engagement-choices {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

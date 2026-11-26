@@ -1,0 +1,51 @@
+{
+  "name": "jeabizdev",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0",
+    "build": "astro build",
+    "preview": "astro preview --host 0.0.0.0",
+    "check": "bash scripts/check.sh",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "og": "bun scripts/generate-og.mjs",
+    "typecheck": "astro check",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "docs:check": "markdownlint-cli2 && bun scripts/check-docs.ts",
+    "budget": "bun scripts/check-budgets.ts",
+    "test:dev": "playwright test --config playwright.dev.config.ts"
+  },
+  "dependencies": {
+    "@astrojs/react": "7.0.1",
+    "@astrojs/vercel": "11.0.14",
+    "@vercel/analytics": "2.0.1",
+    "astro": "7.3.8",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@playwright/test": "^1.58.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/bun": "1.3.11",
+    "@types/node": "^24",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "happy-dom": "20.14.6",
+    "markdownlint-cli2": "0.18.1",
+    "mermaid": "12.1.0",
+    "prettier": "3.6.2",
+    "prettier-plugin-astro": "1.1.1",
+    "sharp": "0.34.5",
+    "typescript": "^5.9.3",
+    "vitest": "3.2.6"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "packageManager": "bun@1.3.11"
+}
