@@ -1,36 +1,48 @@
-# <img src="public/brand/mark.svg" width="36" height="36" alt=""> JEA BizDev Consulting
+# <img src="public/brand/mark.svg" alt="" height="64" /> JEA BizDev Consulting
 
-[![CI](https://github.com/nicholasadamou/jeabizdev.com/actions/workflows/ci.yml/badge.svg)](https://github.com/nicholasadamou/jeabizdev.com/actions/workflows/ci.yml)
-[![Release](.github/badges/release.svg)](https://github.com/nicholasadamou/jeabizdev.com/releases)
-![Astro](https://img.shields.io/badge/Astro-7-BC52EE?logo=astro&logoColor=white)
-![React](https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
-![Bun](https://img.shields.io/badge/Bun-1.3.11-222?logo=bun&logoColor=white)
-![Flox](https://img.shields.io/badge/Flox-reproducible-58A55C)
-[![License](https://img.shields.io/badge/License-PolyForm_Shield-blue)](LICENSE)
+<img src="public/brand/social.png" alt="JEA BizDev Consulting — Cross-border deals. Lasting value." width="1280" />
 
-A fast, accessible website for JEA’s biotech and biopharma advisory practice.
-Explore partnering assets, transaction announcements, and a guided inquiry flow. Astro serves the pages; React powers the
-interactive features. The original blue DNA identity and source documents remain.
+[![CI](https://img.shields.io/github/actions/workflow/status/nicholasadamou/jeabizdev.com/ci.yml?branch=master&label=CI&labelColor=111F38)](https://github.com/nicholasadamou/jeabizdev.com/actions/workflows/ci.yml)
+![Astro](https://img.shields.io/badge/Astro-2563EB?labelColor=111F38&logoColor=FFFFFF&logo=astro)
+![React](https://img.shields.io/badge/React-2563EB?labelColor=111F38&logoColor=FFFFFF&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-2563EB?labelColor=111F38&logoColor=FFFFFF&logo=typescript)
+![Bun](https://img.shields.io/badge/Bun-2563EB?labelColor=111F38&logoColor=FFFFFF&logo=bun)
+![Flox](https://img.shields.io/badge/Flox-2563EB?labelColor=111F38&logoColor=FFFFFF)
+[![License](https://img.shields.io/badge/License-PolyForm_Shield_1.0.0-2563EB?labelColor=111F38)](LICENSE)
 
-[Visit JEA](https://www.jeabizdev.com) · [User guides](docs/README.md) · [Development](docs/development/setup.md)
+JEA’s website for biotech and biopharma advisory work. Visitors can explore
+partnering assets, read transaction announcements, and send an inquiry.
 
-![JEA — Cross-border deals. Lasting value.](public/brand/social.png)
+[Visit JEA](https://www.jeabizdev.com)
+
+## Getting started
 
 ```sh
 flox activate
 bun install --frozen-lockfile
-bunx playwright install --only-shell chromium
 bun run dev
 ```
 
-Run `bun run check` inside Flox for the same gate as CI and pre-commit: formatting,
-Markdown/Mermaid, source budgets, workflow/shell validation, types, unit tests,
-production build, links, and desktop/mobile browser tests.
+## Documentation
 
-See [the documentation](docs/README.md) for using the site, editing content,
-configuring inquiries, deployment, and automatic releases.
+- [Documentation](docs/README.md): visitor guides, content editing, and inquiry setup.
+- [Getting started](docs/development/setup.md): locked tools, local previews, and browser setup.
+- [Local verification](docs/development/quality.md): formatting, types, tests, and production checks.
+- [Brand assets](docs/brand.md): the DNA mark, palette, photography, and attribution.
+- [Releases](docs/development/releases.md): CI-verified tags and published archives.
 
-Licensed under [PolyForm Shield 1.0.0](LICENSE).
+## Local verification
 
-Release badge maintenance and local checks: [docs/release-badges.md](docs/release-badges.md).
+Run `bun run check` inside Flox. The shared gate checks formatting, Markdown and
+Mermaid, source budgets, workflows, types, unit tests, the production build,
+links, and desktop/mobile browser journeys. Install Chromium as described in
+[development setup](docs/development/setup.md).
+
+The pre-commit hook and GitHub Actions run the same gate.
+
+## License
+
+Copyright © 2026 Nicholas Adamou.
+
+The project is licensed under [PolyForm Shield License 1.0.0](LICENSE), with Nicholas Adamou as
+the holder.

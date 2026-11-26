@@ -1,7 +1,7 @@
-# Release badges and local validation
+# Local release badges and validation
 
-The README uses a repository-hosted SVG, refreshed locally after publishing a
-release. GitHub Actions runs CI on standard GitHub-hosted Ubuntu runners. Bellows remains
+The optional repository-hosted release SVG can be refreshed locally after
+publishing a release. GitHub Actions runs CI on standard GitHub-hosted Ubuntu runners. Bellows remains
 available for local badge validation.
 
 ```sh
@@ -23,4 +23,4 @@ The scoped Bellows workflow runs eight offline badge tests in a pinned container
 without GitHub credentials. It lives outside `.github/workflows` and is never
 scheduled by GitHub Actions. Run the repository’s normal local validation before
 pushing as well. Hosted CI gates automatic release publication; the local badge tools remain
-available for refreshing the README badge after a release.
+available for refreshing the local SVG after a release.
