@@ -7,7 +7,7 @@
 ![React](https://img.shields.io/badge/React-2563EB?labelColor=111F38&logoColor=FFFFFF&logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-2563EB?labelColor=111F38&logoColor=FFFFFF&logo=typescript)
 ![Bun](https://img.shields.io/badge/Bun-2563EB?labelColor=111F38&logoColor=FFFFFF&logo=bun)
-![Flox](https://img.shields.io/badge/Flox-2563EB?labelColor=111F38&logoColor=FFFFFF)
+![Flox](https://img.shields.io/badge/Flox-2563EB?labelColor=111F38&logoColor=FFFFFF&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjAgMjYwIj48cGF0aCBkPSJNMjE1LjQ5OCAxNkgxMDAuMjczTDQ0IDczLjE2NjZWMTMwLjMzM0gxMDEuMTY2TDIxNS40OTggNzMuMTY2NlYxNlpNMTAxLjE2NyAxMzAuMzM0SDIxNS40OTlWMTg3LjUwMUgxMDEuMTY3VjEzMC4zMzRaTTQ0IDE4Ny41MTNIMTAxLjE2NlYyNDQuNjc5SDQ0VjE4Ny41MTNaIiBmaWxsPSIjRkZGRkZGIi8%2BPC9zdmc%2B)
 [![License](https://img.shields.io/badge/License-PolyForm_Shield_1.0.0-2563EB?labelColor=111F38)](LICENSE)
 
 JEA’s website for biotech and biopharma advisory work. Visitors can explore
@@ -44,5 +44,4 @@ The pre-commit hook and GitHub Actions run the same gate.
 
 Copyright © 2026 Nicholas Adamou.
 
-The project is licensed under [PolyForm Shield License 1.0.0](LICENSE), with Nicholas Adamou as
-the holder.
+The project is licensed under [PolyForm Shield License 1.0.0](LICENSE).
